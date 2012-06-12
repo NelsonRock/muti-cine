@@ -20,6 +20,7 @@ public class Main {
 	public static void main(String[] args) throws SQLException{
 		// TODO Auto-generated method stub
 		GregorianCalendar fecha_alta=new GregorianCalendar();
+		Vector emples;
 		Cine cine;
 		Empleado emple;
 		Factura fac;
@@ -29,10 +30,39 @@ public class Main {
 		String registro=null, oficio=null, resp=null, resp2=null, resp3=null, nombre=null;
 		int op=0,menu=0, cod=0, op3=0;
 		BaseDatos mibase=new BaseDatos("jdbc:odbc:multicines","sun.jdbc.odbc.JdbcOdbcDriver");
+		
+				System.out.println("                           +-----------------+                            ");
+				System.out.println("                           |    MULTICINES   |                            ");
+				System.out.println("                           |    -------1.0   |                            ");
+				System.out.println("                 ______....+-----------------+....________                ");
+				System.out.println("....------''''''' ______.........................________ ```````------....");
+				System.out.println("|....------'''''''                                       ```````------....|");
+				System.out.println("|   +--------------+        _________________            +------------+   |");
+				System.out.println("|   | Olga Yanguas |       |                 |           |Manu Romero |   |");
+				System.out.println("|   | Nelson Rodgz |       |_________________|           |    PLQS    |   |");
+				System.out.println("|   +--------------+       | |      |      | |           +------------+   |");
+				System.out.println("|                          | |______|______| |                            |");
+				System.out.println("|__________________________| |_____[|]_____| |____________________________|");
+				System.out.println("|__________________________| |      |      | |____________________________|");
+				System.out.println("|                          | |______|______| |                            |");
+				System.out.println("|__________________________|_________________|____________________________|");
+				System.out.println("                           |        |        |                             ");
+				System.out.println("                          |         |         |                            ");
+				System.out.println("                         |          |          |                           ");
+				System.out.println("                        |           |           |                          ");
+				System.out.println("                       |            |            |                         ");
+				System.out.println("                      |             |             |                        ");
+				System.out.println("                     |              |              |                       ");
+				System.out.println("                    |               |               |                      ");
+
+		
+		
+		
+		
 		do{
-		System.out.println("Login:");
+		System.out.print("Login:");
 		String login=Consola.LeeCadena();
-		System.out.println("Password: ");
+		System.out.print("Password: ");
 		String password=Consola.LeeCadena();
 		
 		try{
@@ -48,7 +78,7 @@ public class Main {
 			System.out.println(e.getMessage());
 			System.exit(0);
 			}
-		if (registro.equals("Administrador")){
+		if (registro.equals("ADMINISTRADOR")){
 			do{
 				menu=menuAdmin();
 				switch(menu){
@@ -170,7 +200,7 @@ public class Main {
 						continuar();
 					break;
 
-//case 4 :FALTA RETORNAR TODOO DEL CINE, las facturas los empleados ....					
+//case 4 TERMINADO Y PROBADO					
 					case 4: //Informacion de un Cine. 
 						System.out.println("Indica el Código del Cine:");
 						cod=Consola.LeeEntero();
@@ -345,8 +375,9 @@ public class Main {
 								System.out.println("BORRAR EL EMPLEADO Nº"+idemple+" :");
 								
 								
-								//CODIGO
-								
+								System.out.println("Lo sentimos, en estos momentos no puedes hacer esta Operación");
+								continuar();
+								break;
 								
 								
 							}	
@@ -358,7 +389,7 @@ public class Main {
 							}
 						}
 						
-						continuar();
+						
 						
 						break;
 								
@@ -366,20 +397,20 @@ public class Main {
 						System.out.println("Indica el Código del Cine:");
 						cod=Consola.LeeEntero();
 						try{
-							
 						mibase.abrir();
 						BDCine.buscarCodCine(mibase, cod);
-						emple=BDEmpleado.informacionEmpleado(mibase, cod);
-						System.out.println(emple.toString());
+						emples=BDEmpleado.EmpleadoVector(mibase, cod);
 						mibase.cerrar();
+						if(emples.isEmpty())
+							System.out.println("No hay empleados");
+						else
+							for(int i=0;i<emples.size();i++)
+								System.out.println(emples.get(i));
 						}
 						catch(ErrorTecnicoExcepcion e){
 						System.out.println(e.getMessage());
 						}
 						catch(CineExcepcion e){
-						System.out.println(e.getMessage());
-						}
-						catch(EmpleadoExcepcion e){
 						System.out.println(e.getMessage());
 						}
 						continuar();
@@ -445,6 +476,15 @@ public class Main {
 						break;
 						
 					case 11: //Mostrar Película/s de un Cine
+						System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+						   System.out.println("   ____________");
+		                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+		                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+		                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+		                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+		                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+		                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+		                   continuar();
 						break;
 	
 //case 12 TERMINADO Y PROBADO							
@@ -500,12 +540,39 @@ public class Main {
 						break;
 
 					case 14: //Mostrar Sala/s de un Cine
+						System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+						   System.out.println("   ____________");
+		                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+		                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+		                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+		                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+		                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+		                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+		                   continuar();
 						break;
 
 					case 15: //Mostrar Beneficios
+						System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+						   System.out.println("   ____________");
+		                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+		                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+		                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+		                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+		                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+		                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+		                   continuar();
 						break;
 						
 					case 16: //Mostrar Último Informe
+
+						System.out.println("                             ___");
+						System.out.println("                     /======/  ");
+						System.out.println("            ______  //     /___");
+						System.out.println("             |  |  //           :,");  
+						System.out.println("     |_______|__|_//            ;:; Seccion en Construccion:");
+						System.out.println("    _L_____________|o           ;;;;  El Informe no se genará si no han pasado 30 días");
+						System.out.println("____(CCCCCCCCCCCCCC)___________;;;;;;____________________________________________________");
+						continuar();
 						break;
 						
 					case 18:
@@ -521,15 +588,51 @@ public class Main {
 				switch(menu){
 
 				case 1: // Compra de Entrada
+					System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+					   System.out.println("   ____________");
+	                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+	                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+	                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+	                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+	                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+	                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+	                   continuar();
 					break;
 					
 				case 2: //Mostrar Facturas
+					System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+					   System.out.println("   ____________");
+	                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+	                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+	                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+	                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+	                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+	                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+	                   continuar();
 					break;
 					
 				case 3: //Mostrar Películas del Catálogo
+					System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+					   System.out.println("   ____________");
+	                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+	                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+	                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+	                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+	                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+	                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+	                   continuar();
 					break;
 					
 				case 4: //Información de un Cine
+					System.out.println("En estos momentos es imposible conectar con nuestra Base de Datos");
+					   System.out.println("   ____________");
+	                   System.out.println("  |LO SENTIMOS |            (__)          (__)          (__)");
+	                   System.out.println("  | MUUUUUUCHO |            (uu)          (uu)          (uu)");
+	                   System.out.println("  |    :-(     |     /-------**    /-------**    /-------** ");
+	                   System.out.println("  |____________|    / |     ||    / |     ||    / |     ||   ");
+	                   System.out.println("        ||         *  ||----||   *  ||----||   *  ||----||   ");
+	                   System.out.println("        ||            ~~    ~~      ~~    ~~      ~~    ~~   ");
+	                   continuar();
 					break;
 					
 				
@@ -650,7 +753,7 @@ public class Main {
 		String apellidos=emple.getApellidos().toUpperCase();
 		String usuario=nombre.substring(0, 2)+apellidos.substring(0, 2)+"0"+idemple;
 		System.out.println("USUARIO: "+ usuario);
-		String contraseña=idemple+usuario+idemple;
+		String contraseña=idemple+usuario;
 		System.out.println("CONTRASEÑA: "+ contraseña);
 		if (emple.getOficio().equals("TAQUILLERO")){
 			System.out.println("\n\t CUENTA DE USUARIO PARA EL TAQUILLERO "+ nombre + "  " + apellidos+ ", con ID "+ idemple);
