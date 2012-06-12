@@ -5,14 +5,7 @@
  * Ventana - Preferencias - Java - Estilo de código - Plantillas de código
  */
 package bbdd;
-/**
-*
-* @author Olga Yanguas
-* @author Nelson Rodriguez
-* @author Manuel Romero
-* @author Alvaro Bilbao
-* @version 24/05/2012
-*/
+
 import java.sql.*;
 import excepciones.ErrorTecnicoExcepcion;
 public class BaseDatos {

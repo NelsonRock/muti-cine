@@ -12,7 +12,7 @@ private String direccion;
 private java.sql.Date fecha_alta;
 
 /**
- * 
+ * @param cod Codigo del Cine
  * @param nombre Nombre del Cine
  * @param provincia Provincia del Cine
  * @param poblacion Poblacion del Cine
@@ -37,8 +37,6 @@ public Cine( String nombre, String provincia,
  * @param direccion Direccion del Cine
  * @param feca_alta Fecha en la que ingresó el Cine
  */
-
-
 
 public Cine (int cod,String nombre, String provincia, 
 		String poblacion, String direccion, java.sql.Date fecha_alta) {
